@@ -1,38 +1,78 @@
-const initialState = 0;
-
-const changetheNumber = (state=initialState,action)=>{
-
-    switch(action.type){
-       case "Increment": return state+1;
-       case "Decrement": return state-1;
-       default: return state;
-    }
-}
 
 
 
-const initialNumber = 0;
+const status = {
+    initialNumber:0,
+    initialState:0,
+    initialStatus:0
+};
 
-const changetheValue = (state=initialNumber,action)=>{
+const changetheNumber = (state=status,action)=>{
 
     switch(action.type){
-       case "Up": return state+1;
-       case "Down": return state-1;
-       default: return state;
-    }
+       case "Increment": return{
+         ...state,
+         initialNumber: state.initialNumber  + action.payload
+        };
+       case "Decrement":
+         return {
+            ...state,
+         initialNumber: state.initialNumber  - action.payload
+        };
+
+        case "Up" : return {
+            ...state,
+         initialState: state.initialState  +  action.payload
+
+        }
+
+        case "Down" : return {
+            ...state,
+         initialState: state.initialState  -  action.payload
+
+        }
+
+        case "IncreaseUp" : return {
+            ...state,
+         initialStatus: state.initialStatus  +  action.payload
+
+        }
+
+        case "DecreaseUp" : return {
+            ...state,
+         initialStatus: state.initialStatus  -  action.payload
+
+        }
+
+        default: return status;
+    
 }
+};
 
 
-const initialStatus = 0;
 
-const changetheStatus = (state=initialStatus,action)=>{
+// const initialNumber = 0;
 
-    switch(action.type){
-       case "IncreaseUp": return state+1;
-       case "DecreaseUp": return state-1;
-       default: return state;
-    }
-}
+// const changetheValue = (state=initialNumber,action)=>{
 
-export  {changetheNumber,changetheValue,changetheStatus};
+//     switch(action.type){
+//        case "Up": return state+1;
+//        case "Down": return state-1;
+//        default: return state;
+//     }
+// }
+
+
+// const initialStatus = 0;
+
+// const changetheStatus = (state=initialStatus,action)=>{
+
+//     switch(action.type){
+//        case "IncreaseUp": return state+1;
+//        case "DecreaseUp": return state-1;
+//        default: return state;
+//     }
+// }
+
+export  {changetheNumber};
 

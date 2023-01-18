@@ -8,10 +8,10 @@ const App = () => {
   const myState = useSelector((state)=> state.changetheNumber );
 
 
-  const myValue = useSelector((state)=> state.changetheValue );
+  // const myValue = useSelector((state)=> state.changetheValue );
 
 
-  const myStatus = useSelector((state)=> state.changetheStatus );
+  // const myStatus = useSelector((state)=> state.changetheStatus );
 
 
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const App = () => {
 
     <div className="quantity"  style={{margin:20}}>
       <button className='quantity__minus' title='Down' onClick={()=>dispatch(DownNumber())}> <span> - </span></button>
-      <input name='quantity' type="text" className='quantity__input' value={myValue} />
+      <input name='quantity' type="text" className='quantity__input' value={myState} />
       <button className='quantity__plus' title='Up' onClick={()=>dispatch(UpNumber())}> <span> + </span></button>
     </div>
 
@@ -42,7 +42,7 @@ const App = () => {
 
     <div className="quantity"  style={{margin:20}}>
       <button className='quantity__minus' title='Decrement' onClick={()=>dispatch(DecreaseNumber())}> <span> - </span></button>
-      <input name='quantity' type="text" className='quantity__input' value={myStatus} />
+      <input name='quantity' type="text" className='quantity__input' value={myState} />
       <button className='quantity__plus' title='Increment' onClick={()=>dispatch(IncreaseNumber())}> <span> + </span></button>
     </div>
 
